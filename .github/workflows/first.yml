@@ -1,0 +1,19 @@
+name: first
+on: [push]
+jobs: 
+   jobe1:
+       name: First job
+       runs-on: ubuntu-latest
+       steps:
+       - name: step one
+         uses: action/checkout@v2
+       - name: step two     
+         run: env | sort
+   jobe2:
+       name: second job
+       runs-on: windows-latest
+       steps:
+       - name: step one
+         uses: action/checkout@v2
+       - name: step two     
+         run: "Get-ChildItem Env: | Sort-Object name"
