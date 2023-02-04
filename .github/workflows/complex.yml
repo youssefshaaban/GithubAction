@@ -1,22 +1,21 @@
 name: challange 
-on:
-  push:
-      branches: main
+on: push
 jobs:
   ubuntu:
        runs-on: ubuntu-latest
        steps:
-       - run: echo "Today's date is: $(date)"
+       - run: date
   windows:
       runs-on: windows-latest
       steps:
-      - run: Write-Output "Today's date is: $(Get-Date)"
+      - run: date
   macos:
      runs-on: macos-latest
      steps:
-     - run: echo "Today's date is: $(date)"
+     - run: date
   depend:
      needs: [ubuntu,windows,macos]   
      runs-on: ubuntu-latest
-     - run: echo "Today's date is: $(date)"
+     steps:
+       - run: date
     
