@@ -12,7 +12,7 @@ jobs:
        runs-on: ubuntu-latest
        steps:
          - name: print custom enviroment 
-         - run: |
+           run: |
                date
                echo "${{ env.WORKSPACE_ENVIROMENT_VARIABE }}"
                echo "${{ env.JOB_ENVIROMENT_VARIABE }}"
@@ -24,7 +24,7 @@ jobs:
       runs-on: windows-latest
       steps:
          - name: print custom enviroment 
-         - run: |
+           run: |
                date
                echo "${{ env.WORKSPACE_ENVIROMENT_VARIABE }}"
                echo "${{ env.JOB_ENVIROMENT_VARIABE }}"
@@ -35,7 +35,8 @@ jobs:
           OVER_RIDE: "Job"
      runs-on: macos-latest
      steps:
-     - run: |   
+       - name: print custom enviroment 
+         run: |   
             date
             echo "${{ env.WORKSPACE_ENVIROMENT_VARIABE }}"
             echo "${{ env.JOB_ENVIROMENT_VARIABE }}"
