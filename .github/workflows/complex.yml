@@ -1,18 +1,45 @@
 name: challange 
+env:
+   WORKSPACE_ENVIROMENT_VARIABE: ' workflow enviroment '
+   OVER_RIDE: 'workflow'
+   
 on: push
 jobs:
   ubuntu:
+       env:
+          JOB_ENVIROMENT_VARIABE: ' job_enviroment for ubntu '
+          OVER_RIDE: ' Job '
        runs-on: ubuntu-latest
        steps:
-       - run: date
+         - name: print custom enviroment 
+         - run: |
+               date
+               echo "${{ env.WORKSPACE_ENVIROMENT_VARIABE }}"
+               echo "${{ env.JOB_ENVIROMENT_VARIABE }}"
+               echo "${{ env.OVER_RIDE }}"
   windows:
+      env:
+          JOB_ENVIROMENT_VARIABE: " job_enviroment for windows"
+          OVER_RIDE: "Job"
       runs-on: windows-latest
       steps:
-      - run: date
+         - name: print custom enviroment 
+         - run: |
+               date
+               echo "${{ env.WORKSPACE_ENVIROMENT_VARIABE }}"
+               echo "${{ env.JOB_ENVIROMENT_VARIABE }}"
+               echo "${{ env.OVER_RIDE }}"
   macos:
+     env:
+          JOB_ENVIROMENT_VARIABE: " job_enviroment for macos"
+          OVER_RIDE: "Job"
      runs-on: macos-latest
      steps:
-     - run: date
+     - run: |   
+            date
+            echo "${{ env.WORKSPACE_ENVIROMENT_VARIABE }}"
+            echo "${{ env.JOB_ENVIROMENT_VARIABE }}"
+            echo "${{ env.OVER_RIDE }}"
   depend:
      needs: [ubuntu,windows,macos]   
      runs-on: ubuntu-latest
