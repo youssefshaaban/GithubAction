@@ -17,6 +17,7 @@ jobs:
                echo "${{ env.WORKSPACE_ENVIROMENT_VARIABE }}"
                echo "${{ env.JOB_ENVIROMENT_VARIABE }}"
                echo "${{ env.OVER_RIDE }}"
+               echo  ${{ secrets.API }}
   windows:
       env:
           JOB_ENVIROMENT_VARIABE: " job_enviroment for windows"
