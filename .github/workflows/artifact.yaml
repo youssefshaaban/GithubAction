@@ -1,6 +1,7 @@
 name: Upload artifact
 
-on: repository_dispatch:
+on: 
+  repository_dispatch:
     types: [on-demand-test] 
 
 env:
